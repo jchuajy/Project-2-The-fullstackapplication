@@ -3,43 +3,74 @@
 
 <head>
       <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <link rel="stylesheet" type="text/css" href="css/style.css" />
+      <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous">
+
+
       <title>Document</title>
 </head>
 
 <body>
-      <div class="animation">
-            <figure>
-                  <svg x="0px" y="0px" viewBox="0 0 883 105.2" xml:space="preserve" overflow="visible">
-                        <polygon points="28,0 10.8,0 28,9 " />
-                        <polygon points="28,12.6 0,46 0,51.9 28,48.9 " />
-                        <polygon points="0.8,105 28,105 28,74.7 20.3,69.7 " />
-                        <polygon points="28,9 10.8,0 0,0 0,46 28,12.6 " />
-                        <polygon points="0,51.9 0,57.3 20,69.8 20,69.8 20,69.8 28,74.7 28,48.9 " />
-                        <polygon points="0,57.3 0,105 0.8,105 20.1,69.7 " />
-                        <polygon points="89.7,40.6 61,25.9 38,46 38,47.8 91,41.9 " />
-                        <polygon points="89.7,40.6 68.4,19.4 61,25.9 " />
-                        <polygon points="99,41 126,37.9 126,30.3 99,0 99,0 " />
-                        <polygon points="38,47.8 38,48.9 103.1,63.5 98.9,49.8 91,41.9 " />
-                        <polygon points="68.4,19.3 49.2,0 38,0 38,14.1 61,25.8 " />
-                        <polygon points="38,48.9 38,80.9 66,98.3 66,55.5 115.2,105 115.8,105 103.1,63.4 " />
-                        <polygon points="61,25.9 38,14.1 38,46 " />
-                        <polygon points="38,105 66,105 66,98.3 38,80.9 " />
-                        <polygon points="126,0 99,0 126,30.3 " />
-                        <polygon points="99,49.8 102.9,63.5 126,68.7 126,59.4 99,45.3 " />
-                        <polygon points="99,41 99,45.3 126,59.4 126,37.9 " />
-                        <polygon points="115.8,105 126,105 126,68.7 102.8,63.4 " />
-                  </svg>
-            </figure>
-      </div>
-      <h1>layout works!</h1>
-      {{{body}}}
-      <script src=scripts/script.js></script>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
+                  aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="rj_animation">
+                  <figure>
+                        <svg x="0px" y="0px" viewBox="0 0 883 105.2" xml:space="preserve" overflow="visible">
+                              <polygon points="28,0 10.8,0 28,9 " />
+                              <polygon points="28,12.6 0,46 0,51.9 28,48.9 " />
+                              <polygon points="0.8,105 28,105 28,74.7 20.3,69.7 " />
+                              <polygon points="28,9 10.8,0 0,0 0,46 28,12.6 " />
+                              <polygon points="0,51.9 0,57.3 20,69.8 20,69.8 20,69.8 28,74.7 28,48.9 " />
+                              <polygon points="0,57.3 0,105 0.8,105 20.1,69.7 " />
+                              <polygon points="89.7,40.6 61,25.9 38,46 38,47.8 91,41.9 " />
+                              <polygon points="89.7,40.6 68.4,19.4 61,25.9 " />
+                              <polygon points="99,41 126,37.9 126,30.3 99,0 99,0 " />
+                              <polygon points="38,47.8 38,48.9 103.1,63.5 98.9,49.8 91,41.9 " />
+                              <polygon points="68.4,19.3 49.2,0 38,0 38,14.1 61,25.8 " />
+                              <polygon points="38,48.9 38,80.9 66,98.3 66,55.5 115.2,105 115.8,105 103.1,63.4 " />
+                              <polygon points="61,25.9 38,14.1 38,46 " />
+                              <polygon points="38,105 66,105 66,98.3 38,80.9 " />
+                              <polygon points="126,0 99,0 126,30.3 " />
+                              <polygon points="99,49.8 102.9,63.5 126,68.7 126,59.4 99,45.3 " />
+                              <polygon points="99,41 99,45.3 126,59.4 126,37.9 " />
+                              <polygon points="115.8,105 126,105 126,68.7 102.8,63.4 " />
+                        </svg>
+                  </figure>
+            </div>
 
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                              <a class="nav-link" href="/products">Products</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="/users/login">Login</a>
+                        </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+            </div>
+      </nav>
+
+      <h1>layout works!</h1>  
+      {{{body}}}
+
+      <script src=/scripts/script.js></script>
 </body>
 
 

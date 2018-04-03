@@ -35,4 +35,8 @@ tl.staggerTo(path, duration, stagger_opts_to, stagger_val);
 
 function getRandom(min, max) {
       return Math.random() * (max - min) + min;
-}
+};
+
+$(".rj_animation").click(function() {
+      window.location.href="/";
+})
