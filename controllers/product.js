@@ -18,7 +18,7 @@
 const showAllProducts = (db) => {
       return (request, response) => {
             // use product model method "showAllProducts" to retrieve all products from db
-            db.productDB.showAllProducts(request.body, (error, queryResult) => {
+            db.productDB.showAllProducts(request.query.sortby, (error, queryResult) => {
                   let context = {
                         product: queryResult.rows
                   };

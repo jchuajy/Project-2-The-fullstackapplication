@@ -22,8 +22,17 @@ const bcrypt = require('bcrypt');
 module.exports = (dbPool) => {
       return {
             showAllProducts: (user, callback) => {
-                  //declare queryString
-                  let queryString = "SELECT * FROM products";
+                  let queryString = "";
+                  switch (user) {
+                        case "hot":
+                              console.log("hot out here");
+                              break;
+
+                        default:
+                              //declare queryString
+                              queryString = "SELECT * FROM products";
+                  }
+
                   // execute query
                   dbPool.query(queryString, (error, queryResult) => {
                         // invoke callback function with results after query has executed
