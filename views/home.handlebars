@@ -1,0 +1,17 @@
+<div>
+      <h1>This is the home page!</h1>
+</div>
+<nav>
+
+</nav>
+<div>
+      {{#each product}}
+      <div>
+            <img src="{{this.img}}">
+            <br>
+            <h2>{{this.name}}</h2>
+            <br>
+            <h2>{{this.price}}</h2>
+      </div>
+      {{/each}}
+</div>

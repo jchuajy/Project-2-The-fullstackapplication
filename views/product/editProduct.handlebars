@@ -1,0 +1,22 @@
+<img src="{{product.img}}">
+<form method="POST" action="/products/{{product.id}}?_method=PUT">
+<br>
+Name: 
+<input type="text" name="name" value="{{product.name}}">
+<br>
+Colour: 
+<input type="text" name="colour" value="{{product.colour}}">
+<br>
+Img: 
+<input type="text" name="img" value="{{product.img}}">
+<br>
+Description: 
+<input type="text" name="description" value="{{product.description}}">
+<br>
+Price: 
+<input type="text" name="price" value="{{product.price}}">
+<br>
+Quantity: 
+<input type="text" name="quantity" value="{{product.quantity}}">
+<input type="submit" value="Edit this product!">
+</form>

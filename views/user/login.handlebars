@@ -1,0 +1,12 @@
+<h1>Enter the information below to log in!</h1>
+{{!-- show this if there was a failed login --}}
+<br> {{failedMessage}}
+<br> {{!-- this is a post method as we need to access the form data --}}
+<form method="POST" action="/users/login">
+      Username:
+      <input name="username" type="text">
+      <br> Password:
+      <input name="password" type="password">
+      <br>
+      <input type="submit" value="Log in!">
+</form>
