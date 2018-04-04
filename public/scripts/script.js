@@ -1,6 +1,6 @@
 var tmax_optionsGlobal = {
       repeat: -1,
-  repeatDelay: 0.65,
+      repeatDelay: 5,
       yoyo: true
 };
 
@@ -9,7 +9,7 @@ CSSPlugin.useSVGTransformAttr = true;
 var tl = new TimelineMax(tmax_optionsGlobal),
       path = 'svg *',
       stagger_val = 0.0125,
-      duration = 0.75;
+      duration = 3;
 
 $.each($(path), function (i, el) {
       tl.set($(this), {
@@ -37,6 +37,25 @@ function getRandom(min, max) {
       return Math.random() * (max - min) + min;
 };
 
-$(".rj_animation").click(function() {
-      window.location.href="/";
+$(".rj_animation").click(function () {
+      window.location.href = "/";
 })
+
+window.onload = function () {
+      //checks cookies to know if user is logged in
+      if (Cookies.get("loggedIn") === "true") {
+            //display logout link and change href
+            $("#loginLogout").attr("href", "/users/logout");
+            $("#loginLogout").text("Logout");
+
+      };
+
+      //make a new request
+      var request = new XMLHttpRequest();
+      
+      //add listener to cartbutton
+      $(".cartButton").click( function() {
+            $.post("/orders/addToCart/" + $(this).attr("id"));
+      });
+
+};

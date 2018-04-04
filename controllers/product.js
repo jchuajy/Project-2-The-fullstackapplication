@@ -15,6 +15,14 @@
  * ===========================================
  */
 
+//create an access control function to restrict access
+function accessControl(allowAccess) {
+      if (request.cookies["userType"] == "user") {
+            response.redirect("/");
+      } else if (request.cookies["userType"] == "admin") {
+            allowAccess
+      };
+};
 const showAllProducts = (db) => {
       return (request, response) => {
             // use product model method "showAllProducts" to retrieve all products from db

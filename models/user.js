@@ -25,11 +25,12 @@ module.exports = (dbPool) => {
                         if (err) console.error('error!', err);
 
                         // set up query
-                        let queryString = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3)';
+                        let queryString = 'INSERT INTO users (name, email, password, usertype) VALUES ($1, $2, $3, $4)';
                         let values = [
                               user.username,
                               user.email,
-                              hashed
+                              hashed,
+                              "user"
                         ];
 
                         // execute query
@@ -48,23 +49,33 @@ module.exports = (dbPool) => {
 
                   dbPool.query(queryString, values, (err, queryResult) => {
                         if (err) console.error('error!', err);
+
+                        //declares a usernameCheck to let controller know what kind of response it should send
+                        let usernameCheck = false;
+                        //declares the password check in order to pass the parameter to callback
+                        let passwordCheck = false;
+                        let userType = "";
+                        let userName= "";
+
                         if (queryResult.rows.length < 1) {
-                              //declares a usernameCheck to let controller know what kind of response it should send
-                              const usernameCheck = false;
-                              //declares the password check in order to pass the parameter to callback
-                              const passwordCheck = false;
-                              callback(err, queryResult, usernameCheck, passwordCheck);
+                              callback(err, queryResult, usernameCheck, passwordCheck, userType, userName);
                               return;
                         }
                         bcrypt.compare(user.password, queryResult.rows[0].password, (err2, res) => {
                               if (res) {
                                     const usernameCheck = true;
                                     const passwordCheck = true;
-                                    callback(err, queryResult, usernameCheck, passwordCheck);
+                                    
+                                    //check for userType, username
+                                    userType = queryResult.rows[0].usertype;
+                                    userName = queryResult.rows[0].name;
+
+                                    callback(err, queryResult, usernameCheck, passwordCheck, userType, userName);
+
                               } else {
                                     const usernameCheck = true;
-                                    const passwordCheck = false;
-                                    callback(err, queryResult, usernameCheck, passwordCheck);
+
+                                    callback(err, queryResult, usernameCheck, passwordCheck, userType, userName);
                               };
                         });
                   });

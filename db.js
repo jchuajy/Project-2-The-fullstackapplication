@@ -12,6 +12,7 @@
 const pg = require('pg');
 const userDB = require('./models/user');
 const productDB = require('./models/product');
+const orderDB = require("./models/order");
 
 const configs = {
   user: 'postgres',
@@ -29,5 +30,6 @@ pool.on('error', (err) => {
 module.exports = {
   pool: pool,
   userDB: userDB(pool),
-  productDB: productDB(pool)
+  productDB: productDB(pool),
+  orderDB: orderDB(pool)
 }

@@ -1,28 +1,49 @@
 @import "compass";
-
-.rj_animation {
-  background: #000000;
-  overflow: hidden;
-  display: inline-block;
-  max-width: 50px;
-  max-height: 50px;
-}
-
-figure { 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50px;
-  width: 50px;
+body {
+  font-family: 'IBM Plex Sans Condensed', sans-serif !important;
 }
 
 svg {
   padding: 0;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 
-svg > * { 
+svg>* {
   fill: #FFFFFF;
   stroke: #FFFFFF;
   stroke-width: 1px;
+}
+
+.p-2 {
+  background-color: #fafafa;
+  margin: 10px;
+  max-width: 350px;
+  max-height: 500px;
+}
+
+.p-2 img {
+  width: 300px;
+  height: 200px;
+}
+
+.p-2 h1 {
+  text-align: center;
+}
+
+.p-2 h3 {
+  text-align: center;
+}
+
+.p-2 h4 {
+  text-align: center;
+}
+
+.shoppingCart {
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("https://i.imgur.com/t8YM3jh.png");
 }

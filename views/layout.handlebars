@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" type="text/css" href="/css/style.css" />
+      <script src="/scripts/browser-cookie-parser.js"></script>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
@@ -15,40 +16,48 @@
             crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
+       <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed" rel="stylesheet"> 
 
 
       <title>Document</title>
 </head>
 
 <body>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark flex-d justify-content-space-between">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
                   aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
             </button>
             <div class="rj_animation">
-                  <figure>
-                        <svg x="0px" y="0px" viewBox="0 0 883 105.2" xml:space="preserve" overflow="visible">
-                              <polygon points="28,0 10.8,0 28,9 " />
-                              <polygon points="28,12.6 0,46 0,51.9 28,48.9 " />
-                              <polygon points="0.8,105 28,105 28,74.7 20.3,69.7 " />
-                              <polygon points="28,9 10.8,0 0,0 0,46 28,12.6 " />
-                              <polygon points="0,51.9 0,57.3 20,69.8 20,69.8 20,69.8 28,74.7 28,48.9 " />
-                              <polygon points="0,57.3 0,105 0.8,105 20.1,69.7 " />
-                              <polygon points="89.7,40.6 61,25.9 38,46 38,47.8 91,41.9 " />
-                              <polygon points="89.7,40.6 68.4,19.4 61,25.9 " />
-                              <polygon points="99,41 126,37.9 126,30.3 99,0 99,0 " />
-                              <polygon points="38,47.8 38,48.9 103.1,63.5 98.9,49.8 91,41.9 " />
-                              <polygon points="68.4,19.3 49.2,0 38,0 38,14.1 61,25.8 " />
-                              <polygon points="38,48.9 38,80.9 66,98.3 66,55.5 115.2,105 115.8,105 103.1,63.4 " />
-                              <polygon points="61,25.9 38,14.1 38,46 " />
-                              <polygon points="38,105 66,105 66,98.3 38,80.9 " />
-                              <polygon points="126,0 99,0 126,30.3 " />
-                              <polygon points="99,49.8 102.9,63.5 126,68.7 126,59.4 99,45.3 " />
-                              <polygon points="99,41 99,45.3 126,59.4 126,37.9 " />
-                              <polygon points="115.8,105 126,105 126,68.7 102.8,63.4 " />
+
+                        <svg x="0px" y="0px" xml:space="preserve" overflow="hidden">
+                              <polygon points="11,12 22,12 22,8 11,8" />
+                              <polygon points="18,31 22,31 22,12 18,12" />
+                              <polygon points="12,22 18,22 18,18 12,18" />
+                              <polygon points="3,31 8,31 12,22 8,21" />
+                              <polygon points="8,21 12,22 13,18 10,18" />
+                              <polygon points="6,20 8,21 10,18 9,17" />
+                              <polygon points="5,17 6,20 9,17 8,15" />
+                              <polygon points="4,16 5,19 8,15 9,12" />
+                              <polygon points="4,13 4,16 9,12 5,10" />
+                              <polygon points="7,9 6,10 9,12 11,12" />
+                              <polygon points="9,8 7,9 9,12 11,12" />
+                              <polygon points="13,8 10,8 11,12 15,12" />
+
+                              <polygon points="26,8 22,8 22,26 27,25" />
+                              <polygon points="27,25 22,26 23,28 28,27" />
+                              <polygon points="28,27 23,28 25,30 30,27" />
+                              <polygon points="28,27 25,30 28,31 31,27" />
+                              <polygon points="30,27 28,31 30,31 23,27" />
+                              <polygon points="31,27 30,31 33,31 33,26" />
+                              <polygon points="33,26 33,31 35,30 34,23" />
+                              <polygon points="33,23 35,30 37,26 33,21" />
+                              <polygon points="33,21 37,26 38,23 38,21" />
+
                         </svg>
-                  </figure>
+
+            </div>
+            <div class="shoppingCart">
             </div>
 
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -57,11 +66,14 @@
                               <a class="nav-link" href="/products">Products</a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="/users/login">Login</a>
+                              <a id="loginLogout" class="nav-link" href="/users/login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                              <a class="nav-link" href="/users/new">Register</a>
                         </li>
                         <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Teams
+                                    Products By...
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="/products/?sortby=hot">Top Selling Items!</a>
@@ -77,7 +89,6 @@
             </div>
       </nav>
 
-      <h1>layout works!</h1>
       {{{body}}}
 
       <script src=/scripts/script.js></script>

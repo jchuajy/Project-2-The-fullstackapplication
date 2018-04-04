@@ -54,7 +54,7 @@ const goToLogin = (request, response) => {
 const loginUser = (db) => {
       return (request, response) => {
             //use user model method "findLogin" to check if user information is stored on db
-            db.userDB.findLogin(request.body, (error, queryResult, usernameCheck, passwordCheck) => {
+            db.userDB.findLogin(request.body, (error, queryResult, usernameCheck, passwordCheck, userType, userName) => {
                   //error logs
                   if (error) {
                         console.error('error logging in:', error);
@@ -75,7 +75,8 @@ const loginUser = (db) => {
 
                         // drop cookies to indicate user's logged in status and username
                         response.cookie('loggedIn', true);
-                        response.cookie('username', request.body.username);
+                        response.cookie('username', userName);
+                        response.cookie("userType", userType)
                         // redirect to home page after creation
                         response.redirect('/');
                   };
@@ -87,6 +88,7 @@ const logoutUser = (request, response) => {
       //change cookie values
       response.cookie('loggedIn', false);
       response.cookie('username', "none");
+      response.cookie("userType", "none");
       // redirect to home page after creation
       response.redirect('/');
 }

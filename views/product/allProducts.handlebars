@@ -1,7 +1,12 @@
-{{#each product}}
-<div>
-      <img src="{{this.img}}">
-      <h1>{{this.name}}</h1>
-      <h4>{{this.price}}</h4>
+<div class="d-flex flex-wrap justify-content-center">
+
+      {{#each product}}
+      <div class="p-2 justify-content-center">
+            <img src="{{this.img}}">
+            <h1>{{this.name}}</h1>
+            <h3>{{this.description}}</h3>
+            <h4>${{this.price}}</h4>
+            <button class="btn btn-outline-success cartButton" id="{{this.id}}">Add to cart</button>
+      </div>
+      {{/each}}
 </div>
-{{/each}}
