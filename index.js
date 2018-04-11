@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const db = require('./db')
-
+const stripe = require("stripe")("sk_test_KLqq91MyqOtZtu0jk5CPsZva");
 
 /**
  * ===================================
@@ -20,6 +20,7 @@ const app = express();
 app.use(bodyParser.urlencoded({
       extended: true
 }));
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
@@ -62,6 +63,26 @@ app.get('/', (request, response) => {
       })
 
 });
+
+app.get("/test", (request, response) => {
+      response.render("carousel");
+})
+
+app.post("/orders/charge", function (req, res) {
+      var token = req.body.stripeToken;
+      var chargeAmount = req.body.chargeAmount;
+      var charge = stripe.charges.create({
+            amount: chargeAmount,
+            currency: "sgd",
+            source: token
+      }, function(err, charge) {
+            if (err & err.type ==="StripeCardError") {
+                  console.log("Your card was declined");
+            }
+      });
+      console.log("Your payment was successful");
+      res.redirect("/orders/success");
+})
 
 app.get("*", (request, response) => {
       response.render("404");

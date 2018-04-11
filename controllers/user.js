@@ -31,12 +31,13 @@ const createNewUser = (db) => {
                   }
 
                   if (queryResult.rowCount >= 1) {
-                        console.log(queryResult);
                         console.log('User created successfully');
 
                         // drop cookies to indicate user's logged in status and username
                         response.cookie('loggedIn', true);
-                        response.cookie('username', request.body.name);
+                        response.cookie('username', queryResult.rows[0].name);
+                        response.cookie("userId", queryResult.rows[0].id);
+                        response.cookie("userType", queryResult.rows[0].usertype);
                   } else {
                         console.log('User could not be created');
                   }
@@ -53,8 +54,9 @@ const goToLogin = (request, response) => {
 
 const loginUser = (db) => {
       return (request, response) => {
+            console.log(request.body);
             //use user model method "findLogin" to check if user information is stored on db
-            db.userDB.findLogin(request.body, (error, queryResult, usernameCheck, passwordCheck, userType, userName) => {
+            db.userDB.findLogin(request.body, (error, queryResult, usernameCheck, passwordCheck, userType, userName, userId) => {
                   //error logs
                   if (error) {
                         console.error('error logging in:', error);
@@ -76,7 +78,8 @@ const loginUser = (db) => {
                         // drop cookies to indicate user's logged in status and username
                         response.cookie('loggedIn', true);
                         response.cookie('username', userName);
-                        response.cookie("userType", userType)
+                        response.cookie("userId", userId);
+                        response.cookie("userType", userType);
                         // redirect to home page after creation
                         response.redirect('/');
                   };

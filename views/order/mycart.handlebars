@@ -1,0 +1,38 @@
+<h1>Welcome to your shopping cart</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Item Name</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+        {{#each cartItems}}
+    <tr>
+      <th scope="row">{{this.name}}</th>
+      <td>{{this.quantity}}</td>
+      <td>{{this.price}}</td>
+      <td><span class="oi oi-trash"></span></td>
+    </tr>
+    {{/each}}
+    <th scope="row">Total</th>
+    <td colspan="1"></td>
+    <td id="totalprice">{{totalPrice}}</td>
+  </tbody>
+</table>
+<br>
+    <form action="/orders/charge" method="POST">
+    <script
+    src="https://checkout.stripe.com/checkout.js" 
+    class="stripe-button"
+    data-key="pk_test_K5XiK73dicjekqmRvMryZWXz"
+    data-amount={{paidPrice}}
+    data-name="pay stuff"
+    data-description="you have just paid for stuff"
+    data-locale="auto"
+    data-currency="sgd">
+    </script>
+    <input type="hidden" name="chargeAmount" value={{paidPrice}}>
+    </form>

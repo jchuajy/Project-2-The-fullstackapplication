@@ -24,11 +24,14 @@ module.exports = (dbPool) => {
             showAllProducts: (user, callback) => {
                   let queryString = "";
                   switch (user) {
-                        case "hot":
-                              console.log("hot out here");
+                        case "worldcup":
+                              queryString = "SELECT * FROM products WHERE productcategory = 'worldcup'";
                               break;
-
+                        case "sevens":
+                              queryString = "SELECT * FROM products WHERE productcategory = 'sevens'";
+                              break;
                         default:
+                        console.log("def");
                               //declare queryString
                               queryString = "SELECT * FROM products";
                   }

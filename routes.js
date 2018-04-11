@@ -46,6 +46,7 @@ module.exports = (app, db) => {
 
       //Orders CRUD
       app.post("/orders/addToCart/:productid", orders.addToCartById(db));
-      
+      app.get("/orders/mycart", orders.getUserCart(db));
+      app.get("/orders/success", orders.paySuccess(db));
 
 }

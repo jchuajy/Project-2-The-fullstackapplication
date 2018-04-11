@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node index.js"
+  },
+  
   "name": "project2_first_fullstack",
   "version": "1.0.0",
   "main": "index.js",
@@ -11,6 +15,12 @@
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
     "method-override": "^2.3.10",
-    "pg": "^7.4.1"
-  }
+    "pg": "^7.4.1",
+    "stripe": "^5.8.0"
+  },
+
+  "engines" : {
+    "node" : "^6.6.0"
+    }
+  
 }
